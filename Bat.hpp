@@ -3,20 +3,18 @@
 
 class Bat {
 private:
-    float m_Speed = 500.0f;a
-    float m_DirX;
-    float m_DirY;
+    float m_Speed = 500.0f;
     bool m_MoveRight = false;
     bool m_MoveLeft = false;
     sf::RectangleShape m_Shape;
-    sf::FloatRect m_Position;
+    sf::Vector2f m_Position;
 public:
     Bat(float startX, float startY);
-    void getPosition();
-    void getShape();
+    sf::FloatRect getPosition();
+    sf::RectangleShape& getShape();
     void moveRight();
     void moveLeft();
     void stopRight();
-    void stopLetf();
+    void stopLeft();
     void update(sf::Time dt);
 };
