@@ -1,45 +1,44 @@
 #include "Bat.hpp"
 
-Bat::Bat(float StartX, float StartY)
-    : m_DirX(startX), m_DirY(startY) {
-        m_Position(m_DirX, m_DirY);
-        m_Shape.setSize(sf::Vector2f(50, 10));
+Bat::Bat(float startX, float startY)
+    : m_Position(startX, startY) {
+        m_Shape.setSize(sf::Vector2f(200, 20));
         m_Shape.setPosition(m_Position);
         m_Shape.setFillColor(sf::Color::White);
   
     }
-Bat::getPosition() {
-    return m_Shape.getPosition;
+sf::FloatRect Bat::getPosition() {
+    return m_Shape.getGlobalBounds();
 }
 
-Bat::getShape() {
+sf::RectangleShape& Bat::getShape() {
     return m_Shape;
 }
 
-void moveRight() {
-    m_MoveRight = true
+void Bat::moveRight() {
+    m_MoveRight = true;
 }
 
-void stopRight() {
+void Bat::stopRight() {
     m_MoveRight = false;
 }
 
-void moveLeft() {
+void Bat::moveLeft() {
     m_MoveLeft = true;
 }
 
-void stopLeft() {
+void Bat::stopLeft() {
     m_MoveLeft = false;
 }
 
-void update(sf::Time dt) {
+void Bat::update(sf::Time dt) {
     if (m_MoveRight) {
-        m_DirX += m_Speed * dt.asSeconds();
-    } else {
-        m_DirY -= m_SPeed * dt.asSeconds();
+        m_Position.x += m_Speed * dt.asSeconds();
+    } 
+    if (m_MoveLeft) {
+        m_Position.x -= m_Speed * dt.asSeconds();
     }
-
-    m_Shape.setPosition(m_DirX, m_DirY);
+    m_Shape.setPosition(m_Position);
 }
 
 
