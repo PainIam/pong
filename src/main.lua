@@ -17,9 +17,9 @@ function love.load()
 
     love.window.setTitle("PONG")
 
-    font = love.graphics.newFont("font.ttf", 8)
-    largeFont = love.graphics.newFont("font.ttf", 16)
-    scoreFont = love.graphics.newFont("font.ttf", 32)
+    font = love.graphics.newFont("/fonts/font.ttf", 8)
+    largeFont = love.graphics.newFont("fonts/font.ttf", 16)
+    scoreFont = love.graphics.newFont("fonts/font.ttf", 32)
     love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {
         resizable = true,
         vsync = true,
