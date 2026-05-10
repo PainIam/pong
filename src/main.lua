@@ -125,14 +125,13 @@ function love.update(dt)
         end
     end
 
-    if love.keyboard.isDown('w') then
 
-        player1.dy = -PADDLE_SPEED
-    elseif love.keyboard.isDown('s') then
 
-        player1.dy = PADDLE_SPEED
-    else
-        player1.dy = 0 -- dy (0) * dt will result in no movement
+    -- basic player 1 ai update because i have no to play with
+    -- first check if the ball is in motion
+    if ball.dy > 0 or ball.dy < 0 then
+        --update the paddles movement relative to the balls
+        player1.y = ball.y
     end
 
     if love.keyboard.isDown('up') then
